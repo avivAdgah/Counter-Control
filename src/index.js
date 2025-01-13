@@ -1,8 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { useState } from 'react';
+import Counter from './counter';
 import reportWebVitals from './reportWebVitals';
+ 
+function App(){
+  const [delta,setDelta] = useState(1);
+
+  function onChange(e){
+    setDelta(e.target.value);
+  }
+
+  return(
+    <div>
+      <span>the amount of the counter</span>
+      <input type="number" value={delta} onChange={onChange}/>
+
+      <Counter delta = {delta} />
+      <Counter delta = {delta} />
+      <Counter delta = {delta} />
+      <Counter delta = {delta} />
+    </div>
+  );
+}
 
 ReactDOM.render(
   <React.StrictMode>
